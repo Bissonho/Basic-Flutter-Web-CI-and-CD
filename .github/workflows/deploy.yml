@@ -1,0 +1,33 @@
+name: Build and Deploy for Web
+
+on:
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:  
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.3.6"
+          channel: 'master'
+          cache: true
+
+      - name: Get dependencies
+        run: flutter pub get
+
+      - name: Start release build
+        run: flutter build web
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@main
+        env:
+            SOURCE: "build/web/"
+            SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+            REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+            REMOTE_USER: ${{ secrets.REMOTE_USER }}
+            TARGET: ${{ secrets.REMOTE_TARGET }}
+            REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
