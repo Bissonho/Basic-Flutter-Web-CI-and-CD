@@ -1,16 +1,7 @@
-# fluter_basic_ci_cd
+# Fluter Web Basic CI CD
 
-A new Flutter project.
+https://deploy.paulobissonho.com.br/#/
 
-## Getting Started
+As I was having trouble finding a tutorial to perform this configuration, I decided to create it myself after learning.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
